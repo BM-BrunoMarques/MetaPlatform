@@ -6,6 +6,9 @@ import { useMoralis } from 'react-moralis'
 
 function login({}) {
   const { authenticate } = useMoralis()
+  const signIn = () => {
+    authenticate()
+  }
 
   return (
     <div className="relative bg-black text-white">
@@ -18,7 +21,7 @@ function login({}) {
             height={150}
           />
           <h1>Welcome to Meta Platform</h1>
-          <button onClick={authenticate} className="my-4">
+          <button onClick={signIn} className="my-4">
             Log in
           </button>
         </div>
