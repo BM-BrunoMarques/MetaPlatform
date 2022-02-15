@@ -1,10 +1,13 @@
 import Head from 'next/head'
-import Login from '../components/login'
+import Login from '../components/login/login'
 import { useMoralis } from 'react-moralis'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const { isAuthenticated, logout } = useMoralis()
-  if (!isAuthenticated) return <Login />
+  const [isAuth, setAuth] = useState(isAuthenticated)
+
+  if (!isAuth) return <Login setAuth={setAuth} />
 
   return (
     <div>
